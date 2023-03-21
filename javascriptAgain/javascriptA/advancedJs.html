@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced javascript</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        const firtFunc = async (a, b) => {
+            return a + b
+
+        }
+
+        const secondFunc = (a) => {
+
+            return a
+        }
+        console.log(secondFunc(firtFunc(2, 6)));
+
+
+
+        const asyncFunc = async (a, b) => {
+            return
+            a - b
+        }
+
+        console.log(asyncFunc(2, 3));
+
+//async
+
+//old method
+
+// const apiUrl ="https://jsonplaceholder.typicode.com/users"
+
+// const dummy = new XMLHttpRequest
+
+// dummy.onload = () => {
+//     if (dummy.status ===200) {
+//         const data = JSON.parse(dummy.response)
+//         console.log(data);
+//     } else {
+//         console.log("something went wrong");
+//     }
+// }
+
+// dummy.open("GET",apiUrl)
+// dummy.send()
+
+
+// fetch method
+
+
+    // const apiUrl = "https://jsonplaceholder.typicode.com/users"
+
+    // const promise = fetch(apiUrl,{
+    //     method:"GET"
+    // }).then((res)=>{
+    //     if (res.status === 200)         
+        
+    //     return res.json()
+    //     else throw new Error("failed in api");
+
+    // }).then((data)=>{
+    //     console.log(data[3]);
+    // }).catch((err)=>
+    // err.message)
+
+
+// async
+
+// const apiUrl = "https://jsonplaceholder.typicode.com/users"
+
+// const fetchData =  async() => {
+// try {
+//     const response = await fetch(apiUrl);
+//     if (response.status === 200) {
+//         const data = await response.json()
+//         console.log(data);
+//     } 
+// } catch (error) {
+//     console.log(error.message);
+// }
+// }
+// fetchData()
+
+   
+
+
+const apiUrl=  "https://jsonplaceholder.typicode.com/users"
+
+const fetchData = async() =>{
+
+  try {
+    const response = await fetch(apiUrl)
+    if (response.status===200) {
+        const data = await response.json()
+        console.log(data);
+    }
+    else throw new Error("not ok")
+  }
+   catch (error) {
+console.log(error.message);
+  }
+}
+fetchData()
+
+setTimeout(() => {
+    console.log("hi");
+}, 3000);
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parameters</title>
+</head>
+
+<body>
+  <div>
+    <div>Number1:<input type="number" id="value1" /></div>
+    <div>Number2:<input type="number" id="value2" /></div>
+    <button onclick="calFunc('add')">add</button>
+    <button onclick="calFunc('sub')">sub</button>
+    <button onclick="calFunc('mul')">mul</button>
+    <button onclick="calFunc('div')">div</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const calFunc = (type) => {
+      const val1 = document.getElementById("value1").value;
+      const val2 = document.getElementById("value2").value;
+
+      if (type === "add") {
+        const totalAdd = parseInt(val1) + parseInt(val2);
+        document.getElementById("result").innerHTML = totalAdd;
+      }
+
+      if (type === "sub") {
+        const totalAdd = val1 - val2;
+        document.getElementById("result").innerHTML = totalAdd;
+      }
+      if (type === "mul") {
+        const totalAdd = val1 * val2;
+        document.getElementById("result").innerHTML = totalAdd;
+      }
+      if (type === "div") {
+        const totalAdd = val1 / val2;
+        document.getElementById("result").innerHTML = totalAdd;
+      }
+    };
+
+    //string
+
+    const string = `
+    dhinakaran, 
+    ramkumar , 
+    christoper`;
+    const string1 = "naming"
+    const len = string.length;
+    const slices = string.slice(-14, -8);
+    const replaceStr = string.toLocaleUpperCase()
+    console.log(string);
+
+    const strings = new ("this new string in javascript")
+    document.write(strings)
+
+  </script>
+</body>
+
+</html>

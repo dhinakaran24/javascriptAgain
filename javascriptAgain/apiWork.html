@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>api work</title>
+</head>
+
+<body>
+
+    <div>
+        <h4 id="api-data"></h4>
+        User-name : <input type="text" id="user-name"><br>
+        User-email : <input type="text" id="user-email"><br>
+        <input type="button" value="to Post" onclick="postData()">
+    </div>
+
+
+
+
+    <script>
+        // const apiUrl = "https://jsonplaceholder.typicode.com/users"
+        // const arrayLength = []
+        // for (let i = 0; i < arrayLength.length; i++) {
+        //     console.log(arrayLength);
+        // }
+        // const postData = async () => {
+        //     const inputName = document.getElementById("user-name").value
+        //     const inputEmail = document.getElementById("user-email").value
+        //     const headers = {
+        //         name: inputName,
+        //         email: inputEmail
+        //     }
+        //     try {
+        //         const postValue = await axios.post(apiUrl, headers)
+                
+        //     } catch (error) {
+        //         console.log(error.message);
+        //     }
+        // }
+
+        // const showData = async () => {
+        //     try {
+        //         const promise = await axios.get(apiUrl)                
+        //         console.log(promise.data)                
+        //     } catch (error) {
+        //         console.log(error.message);
+        //     }
+        // }
+        // showData()
+
+
+
+        const url = 'https://jsonplaceholder.typicode.com/users';
+          
+        const showData = async( ) => {
+           try {
+             const p1 = await axios.get(url)
+               console.log(p1.data);
+           } catch (error) {  
+            console.log(error.message);
+           }
+        }
+showData()
+
+    </script>
+
+</body>
+
+</html>                                                             

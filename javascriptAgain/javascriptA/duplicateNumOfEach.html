@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interveiw</title>
+</head>
+
+<body>
+    <script>
+          const array = [];
+            function duplicateValue() {
+                const rangeValue = 500;
+                for (let i = 1; i <= rangeValue; i++) {
+                    const digits = i.toString().split("");
+                    const uniqueDig = new Set(digits);
+                    if (uniqueDig.size < digits.length) {
+                        array.push(i);
+                    }
+                }
+                return array;
+            }
+            const filteredValue = duplicateValue();
+            for (let i = 0; i < filteredValue.length; i++) {
+                let sum = 0;
+                let num = filteredValue[i]
+                while (num > 0) {
+                    sum += num % 10
+                    num = Math.floor(num / 10)
+                }                
+                if (sum <=5) {
+                    console.log(` filtered duplicate combination numbers ${filteredValue[i]} and its total : ${sum}`);                    
+                }                   
+            }           
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample</title>
+    <style>
+        .align{
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="align">
+    <h1 style="color: red;" >works<sub>notes</sub></h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtkWUW6okcBzsJuLW7oiVND9ezDsGuLmR0x3kwgpw0AuUgF7usnXYsNffVDNixQZZCOqs&usqp=CAU" >
+
+
+    <table>
+        <tr>
+            <th>s.no</th>
+            <th>name</th>
+            <th>marks</th>
+            <th>results</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>dhina &#128516;</td>
+            <td>90</td>
+            <td>pass</td>
+        </tr>
+    </table>
+
+    <button onclick="myDateFunc()" id="change">this is date</button><br>
+
+
+
+    name:<input type="text" id="nameInput" ><br>
+    location:<input type="text" id="locationInput"><br>
+    <button onclick="getDeatails()">submit</button>
+    <h4 id="display"> </h4>
+
+    <script>
+const myDateFunc = ( ) => {
+document.getElementById("change").innerHTML=Date()
+}
+
+const getDeatails = () => {
+  const getName =  document.getElementById("nameInput");
+    const getLocation = document.getElementById("locationInput");
+
+    const nameValue = getName.value;
+    const locationValue =getLocation.value;
+
+    document.getElementById("display").innerHTML = `${nameValue} 
+    ${locationValue}`
+
+}
+const myArray = ["dhina","karan","manoragavan","manojKumar"]
+
+const checkFilter = myArray.find((value)=>value.includes("jk"))
+console.log(checkFilter);
+
+const mobiles ={
+    name:"dhina",
+    class:12,
+    hobby:"cricket"
+}
+
+for (let key in mobiles) {
+    console.log(mobiles[key]);
+}
+
+    </script>
+
+
+</body>
+</html>

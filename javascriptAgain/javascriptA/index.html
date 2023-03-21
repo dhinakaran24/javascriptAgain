@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="demo">
+    <h4>Numbers</h4>
+    Number1:<input type="number" id="number1" /><br />
+    Number2:<input type="number" id="number2" /><br />
+
+    <h4>String</h4>
+    String-one: <input type="text" id="string-input1" /> String-two:
+    <input type="text" id="string-input2" /> String-three:
+    <input type="text" id="string-input3" /><br />
+
+    <h4>Decimal</h4>
+    Amount1: <input type="number" id="amount1" /><br />
+    Amount2: <input type="number" id="amount2" /><br /><br /><br /><br />
+
+    <button onclick="totalSubmit()">Submit</button><br /><br /><br /><br />
+    <div id="show"></div>
+
+    <h5>functions</h5>
+    number1: <input type="number" name="c" id="c" /><br />
+    number2: <input type="number" name="d" id="d" /><br />
+    <button onclick="addFunc(document.getElementById('c').value,document.getElementById('d').value)">
+      Add
+    </button>
+    <button onclick="subFunc(document.getElementById('c').value,document.getElementById('d').value)">
+      Sub
+    </button>
+    <button onclick="mulFunc(document.getElementById('c').value,document.getElementById('d').value)">
+      Mul
+    </button>
+    <button onclick="divFunc(document.getElementById('c').value,document.getElementById('d').value)">
+      Div
+    </button>
+    <div id="params"></div>
+  </div>
+  <script>
+    const addFunc = (c, d) => {
+      const total1 = c + d;
+      document.getElementById("params").innerHTML = total1;
+    };
+    const subFunc = (c, d) => {
+      const total2 = c - d;
+      document.getElementById("params").innerHTML = total2;
+    };
+    const mulFunc = (c, d) => {
+      const total2 = c * d;
+      document.getElementById("params").innerHTML = total2;
+    };
+    const divFunc = (c, d) => {
+      const total2 = c / d;
+      document.getElementById("params").innerHTML = total2;
+    };
+    //number
+    const num1 = 10;
+    const num2 = 20;
+
+    const totalNum = num1 + num2;
+    const totalNum1 = num1 - num2;
+    const totalNum2 = num1 * num2;
+    const totalNum3 = num1 / num2;
+
+    //string
+
+    const person = "Ram ";
+    const greeting = " good afternoon ";
+    const wish = " welcome to my party";
+
+    //decimal
+    const Amount1 = 2.5;
+    const Amount2 = 3.7;
+    console.log("Addition:", totalNum);
+    console.log("Subtraction:", totalNum1);
+    console.log("Multiplication:", totalNum2);
+    console.log("division:", totalNum3);
+    console.log("my invitation: ", greeting + person + wish);
+    console.log("Total amount spending:₹", Amount1 + Amount2);
+
+    console.log("");
+    console.log("");
+    console.log("");
+    console.log("");
+
+    // //seperate
+
+    // var opp = "d"
+    //  opp = "..."
+
+    //  let app = "playStore";
+    //  app = "chrome "
+
+    // console.log(app);
+    // const myAddition =() => {
+    //   var number1 = document.getElementById('text-area').value;
+    //   var number2 = document.getElementById('text-area1').value;
+    //   var myTotalCal = (number1 + number2);
+    //   console.log("My Addition is :",myTotalCal)
+    // }
+    // const mySubtration =() => {
+    //   var number1 = document.getElementById('text-area').value;
+    //   var number2 = document.getElementById('text-area1').value;
+    //   var myTotalCal = number1 - number2;
+    //   console.log("My Subtraction is :",myTotalCal)
+    // }
+    // const myMultiply =() => {
+    //   var number1 = document.getElementById('text-area').value;
+    //   var number2 = document.getElementById('text-area1').value;
+    //   var myTotalCal = number1 * number2;
+    //   console.log("My multiply is :",myTotalCal)
+    // }
+    // const myDivision =() => {
+    //   var number1 = document.getElementById('text-area').value;
+    //   var number2 = document.getElementById('text-area1').value;
+    //   var myTotalCal = number1 / number2;
+    //   console.log("My division is :",myTotalCal)
+    // }
+
+    const totalSubmit = () => {
+      //number
+      let num1 = document.getElementById("number1").value;
+      let num2 = document.getElementById("number2").value;
+      let equalTo = num1 + num2;
+      console.log("My number is :", equalTo);
+
+      //string
+      var myString1 = document.getElementById("string-input1").value;
+      var myString2 = document.getElementById("string-input2").value;
+      var myString3 = document.getElementById("string-input3").value;
+      var myTotalString = myString1 + " " + myString2 + " " + myString3;
+      console.log("My added String is :", myTotalString);
+
+      //amount
+      const amount1 = document.getElementById("amount1").value;
+      const amount2 = document.getElementById("amount2").value;
+      const myTotalAmount = amount1 + amount2;
+      console.log("My decimal amount is ₹", myTotalAmount);
+      document.getElementById("show").innerHTML = myTotalAmount;
+    };
+
+      //functions
+  </script>
+</body>
+
+</html>

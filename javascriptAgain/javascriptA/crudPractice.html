@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud operations js</title>
+</head>
+
+<body>
+    <div style="width: 600px; text-align: center;">
+        <form onsubmit="submitFunc()" id="reset" style="float: left;">
+            name:<input type="text" id="nameInp"><br><br>
+            email:<input type="email" id="emailInp"><br><br>
+            place:<input type="text" id="placeInp"><br><br>
+            <h6 id="erro-msg"></h6>
+            <input type="submit" value="Submit" style=" width: 210px; text-align: center;">
+            <input type="button" value="Update " id="update-btn" onclick="updateFunc()" style="display: none; ">
+        </form>
+
+        <table id="uploadItems" style="float: right;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Place</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+        const submitFunc = () => {
+            event.preventDefault()
+            const validName = document.getElementById("nameInp").value
+            const validEmail = document.getElementById("emailInp").value
+            const validPlace = document.getElementById("placeInp").value
+            if (validName && validEmail && validPlace != null) {
+                let final = getDetails()
+                tableCreate(final)
+                document.getElementById("reset").reset()                
+            }
+             else {
+                document.getElementById("erro-msg").innerHTML= "fill the details"
+            }
+        }
+
+        const getDetails = () => {
+            const myObj = {}
+            console.log(myObj);
+            myObj.name = document.getElementById("nameInp").value;
+            myObj.email = document.getElementById("emailInp").value;
+            myObj.place = document.getElementById("placeInp").value;
+                            document.getElementById("erro-msg").innerHTML = "" 
+   
+            return myObj
+        }  
+
+        const tableCreate = (data) => {
+            const table = document
+                .getElementById("uploadItems")
+                .getElementsByTagName("tbody")[0]
+            const newRow = table.insertRow(table.length)
+            cell1 = newRow.insertCell(0);
+            cell1.innerHTML = data.name
+            cell2 = newRow.insertCell(1);
+            cell2.innerHTML = data.email
+            cell3 = newRow.insertCell(2)
+            cell3.innerHTML = data.place
+            cell4 = newRow.insertCell(3)
+            cell4.innerHTML = `<input type="button" value="Edit" id="edit-btn" onclick="editFunc(this)">
+                               <input type="button" value="Delete" onclick="deleteFunc(this)">`
+        }
+
+        const deleteFunc = (td) => {
+            row = td.parentElement.parentElement
+            document.getElementById("uploadItems").deleteRow(row.rowIndex)
+        }
+
+        const editFunc = (td) => {
+            selectedRow = td.parentElement.parentElement
+            document.getElementById("nameInp").value = selectedRow.cells[0].innerHTML
+            document.getElementById("emailInp").value = selectedRow.cells[1].innerHTML
+            document.getElementById("placeInp").value = selectedRow.cells[2].innerHTML 
+            document.getElementById("edit-btn").style.display= "none"  
+            document.getElementById("update-btn").style.display = "inline-block"  
+                     
+        }
+
+     
+        const updateFunc = () => {
+            event.preventDefault()
+            document.getElementById("edit-btn").style.display = "inline-block"
+            document.getElementById("update-btn").style.display = "none"           
+            selectedRow.cells[0].innerHTML = document.getElementById("nameInp").value
+            selectedRow.cells[1].innerHTML = document.getElementById("emailInp").value
+            selectedRow.cells[2].innerHTML = document.getElementById("placeInp").value
+            document.getElementById("reset").reset()
+                   
+        }
+        
+    
+
+    let array = [123, 456, 789];
+    let sums = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let sum = 0;
+        let number = array[i];
+
+        while (number > 0) {
+            sum += number % 10;
+            number = Math.floor(number / 10);
+        }
+
+        sums.push(sum);
+    }
+
+    console.log(sums); // Output: [6, 15, 24] 
+
+    </script>
+
+</body>
+
+</html>

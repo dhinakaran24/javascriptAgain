@@ -1,0 +1,30 @@
+body{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.fullPost{
+    width: 100%;
+    float: left;
+    
+}
+
+.deletePicR{    
+    width: 15px ;
+    height: 15px;  
+border: solid 1px;
+float: right;
+margin-top: -37px;
+margin-right: 250px;
+}
+.editPic{
+    width: 15px;
+        height: 15px;
+        border: solid 1px;
+        float: right;
+        margin-top: -37px;
+        margin-right: 290px;
+}
+
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events</title>
+</head>
+
+<body>
+  <div>Value1:<input type="number" id="value1" /></div>
+  <div>Value2:<input type="number" id="value2" onchange="evalFunc()" /></div>
+  <br /><br /><br />
+
+  <div>firstName: <input type="text" id="fName" /></div>
+  <div>
+    lastName:
+    <input type="text" id="lName" onmouseleave="valFunc()" ondblclick="dClickF()" />
+  </div>
+  <br />
+  <br />
+  Conclusion:<span id="result"></span><br /><br /><br />
+
+  <!-- click event -->
+  result:<span id="result1"></span><br /><br /><br />
+  <button onclick="clickF()">click</button>
+  <button ondblclick="dClickF()">D-click</button>
+
+  <p onmouseover="mouseOFunc(this)" onmouseout="mouseOutF(this)">
+    Lorem ipsum dolor sit a quaerat libero voluptate iureexplicabo officia
+    unde, facilis recusandae ad, earum eni Voluptatibus aliquam autem corrupti
+    moles vitae libero amet, doloremque provident minima cupiditate
+  </p>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <p onmousedown="mDownFunc()" id="down-up" onmouseup="mUpFunc()">
+    Lorem ipsum dolor sit a quaerat libero voluptate iureexplicabo officia
+    unde, facilis recusandae ad, earum eni Voluptatibus aliquam autem corrupti
+    moles vitae libero amet, doloremque provident minima cupiditate
+  </p>
+
+  <h5 onmousemove="onMouseM()" onmouseout="onMouseOut()">
+    very object in JavaScript has a built-in property, which is called its
+    prototype. The prototype is itself an object, so the prototype will have
+    ...
+  </h5>
+  <input type="text" onkeydown="keyDownFunc()" onkeyup="keyUpFunc()" />
+  <h6 id="mouseMove"></h6>
+  <h6 id="key"></h6>
+
+  <script>
+    function clickF() {
+      document.getElementById("result1").innerHTML = "onclick ...";
+    }
+    function dClickF() {
+      document.getElementById("result1").innerHTML = 5 + 5;
+    }
+    // onmouseover and out
+    function mouseOFunc(para) {
+      para.style.height = "90px";
+      para.style.width = "90px";
+    }
+    function mouseOutF(out) {
+      out.style.height = "2px";
+      out.style.width = "2px";
+    }
+    //onmousedown and up
+    function mDownFunc() {
+      document.getElementById("down-up").style.color = "green";
+    }
+
+    function mUpFunc() {
+      document.getElementById("down-up").style.color = "orange";
+    }
+    //onmousemove and enter
+    let z = 0;
+
+    function onMouseM() {
+      document.getElementById("mouseMove").innerHTML = z += 1;
+    }
+    function onMouseOut() {
+      document.getElementById("mouseMove").innerHTML = "";
+    }
+
+    //keys up  and down
+    function keyDownFunc() {
+      document.getElementById("key").innerHTML = "key pressing ";
+    }
+    function keyUpFunc() {
+      document.getElementById("key").innerHTML = "";
+    }
+    ///
+    function valFunc() {
+      const name1 = document.getElementById("fName").value;
+      const name2 = document.getElementById("lName").value;
+      const stringAdd = name1 + name2;
+
+      if (name1 != name2) {
+        document.getElementById("result").innerHTML = stringAdd;
+      } else if (name1 === name2) {
+        document.getElementById("result").innerHTML =
+          " please enter valid name ";
+      }
+    }
+
+    function evalFunc() {
+      const Number1 = document.getElementById("value1").value;
+      const Number2 = document.getElementById("value2").value;
+      const eventOf = parseInt(Number1) + parseInt(Number2);
+      document.getElementById("result").innerHTML = eventOf;
+    }
+      //   Objects and  Array
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tasks day 1</title>
+</head>
+
+<body>
+    <form onsubmit="getData()">
+        Name:<input type="text" name="name" id="nameInput" /><br /><br />
+        Email:<input type="email" name="email" id="emailInput" /><br /><br />
+        Title:<input type="text" name="title" id="titleInput" /><br /><br />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+<script>
+    const myInputDetails = [];
+    const getData = () => {
+        event.preventDefault()
+        const getName = document.getElementById("nameInput").value;
+        const getEmail = document.getElementById("emailInput").value;
+        const getTitle = document.getElementById("titleInput").value;
+        const id = myInputDetails.length + 1;
+        const myObj = {
+            id: id,
+            name: getName,
+            email: getEmail,
+            title: getTitle
+        }
+        myInputDetails.push(myObj);
+        document.querySelector("form").reset();
+        console.log(myInputDetails);
+    }
+</script>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tasks day 2</title>
+</head>
+
+<body>
+    <div id="reset">
+        Key :<input type="text" id="keyInput" /><br />
+        Value :<input type="text" id="valueInput" /><br />
+        <input type="submit" value="Add Value" onclick="disArray()">
+        <div id="table-show"></div>
+    </div>
+
+    <script>
+        //Task1
+        // const arrayValues = ['Car', 'Bus', 'Car', 'Van', 'Van', 'Lorry', 'Bus', 'Lorry', 'Van', 'Bus', 'Lorry', 'Lorry', 'Bus'];
+        // let a = 1;
+        // let b = 0;
+        // let item;
+        // for (let i = 0; i < arrayValues.length; i++) {
+        //     for (let j = i; j < arrayValues.length; j++) {
+        //         if (arrayValues[i] === arrayValues[j])
+        //             b++;
+        //         if (a <= b) {
+        //             a = b;
+        //             item = arrayValues[i];
+        //         }
+        //     }
+        //     b = 0;
+        // }
+        // console.log(`${item} : ${a} times`);
+
+        //Task2
+
+
+
+        const myArray = [];
+
+
+
+        const disArray = () => {
+
+            event.preventDefault()
+            const inputKey = document.getElementById('keyInput').value;
+            const inputValue = document.getElementById('valueInput').value;
+            if (inputKey && inputKey != null) {
+                const myObj = {}
+                myObj[inputKey] = inputValue;
+                myArray.push(myObj);
+
+                console.log('myArray', myArray)
+            } else {
+                alert("invalid input field")
+            }
+
+
+
+
+            let tableFormat = "  "
+            let htmlElementTable = `<table id='tables' >
+            <tbody >
+            <tr> 
+                <th>Key</th>
+                <th>Value</th>   
+             </tr>
+        </tbody>`;
+            tableFormat = htmlElementTable;
+            for (let i = 0; i < myArray.length; i++) {
+                for (let [key, value] of Object.entries(myArray[i])) {
+                    let tableList = `           
+        <tr>
+        <td >${key}</td>
+        <td >${value}</td>
+        <td> <input type="submit" id="deleteBtn" onclick="deleteRow(this)" value="delete" /> </td>  
+      
+        </tr>`;
+                    tableFormat += tableList;
+                }
+            }
+            tableFormat += "</table>";
+            document.getElementById("table-show").innerHTML = tableFormat;
+        }
+
+        const deleteRow = (row) => {
+            const i = row.parentNode.parentNode.rowIndex;
+            document.getElementById("tables").deleteRow(i);
+        }
+
+    </script>
+</body>
+
+</html>

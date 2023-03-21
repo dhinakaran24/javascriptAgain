@@ -1,0 +1,34 @@
+            
+        const emailchange = myData.map((e) => {
+            return e.email.toLocaleLowerCase();
+        })
+
+        const nameChange = myData.map((n) => {
+            return n.name.toLocaleUpperCase();
+        })
+
+
+ const emailArray = [
+            { email: "dhinakaran@gmail.com" },
+            { email: "christopherNolen@gmail.com" }
+        ]
+
+        
+
+                Object.assign(obj, { key: "verified" });
+                console.log("okk", obj);
+                myArray.push(obj)
+
+
+
+        const validateArray = ['dhinakaran@gmail.com', 'ramkumar@gmail.com'];
+
+                 if (validateArray.includes(input.value)) {
+                console.log("ok");
+                myObj = {
+                    key: "verified"
+                }
+                console.log(myObj);
+            }
+
+            bodyCase.split(' ').map(body => body.replace('magnam', 'tartlabs').replace('est', 'Est').charAt(0).toUpperCase() + body.slice(1)).join(' ');

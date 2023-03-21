@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of Objects</title>
+    <style>
+        #display,
+        #info {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="reseting" onsubmit="getUserData()">
+        Name : <input type="text" id="ninput"><br><br>
+        Email : <input type="email" id="einput"><br><br>
+        Body : <input type="text" id="binput"><br><br>
+        <h4 id="display"></h4>
+        <input type="submit" value="add Value"><br><br><br><br><br><br>
+    </form>
+    <form onsubmit="getFilterData()">
+        Name || Email : <input type=" text" id="inputField" /><br>
+        <h4 id="info"></h4>
+        <input type="submit" value="Search">
+    </form>
+    <script>
+        const userData = [
+            {
+                "postId": 1,
+                "id": 1,
+                "name": "id labore ex et quam laborum",
+                "email": "Eliseo@gardner.biz",
+                "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+            },
+            {
+                "postId": 1,
+                "id": 2,
+                "name": "Eliseo vero reiciendis velit similique earum",
+                "email": "Eliseo@gardner.biz",
+                "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
+            },
+            {
+                "postId": 1,
+                "id": 3,
+                "name": "odio adipisci rerum aut animi",
+                "email": "Nikita@garfield.biz",
+                "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
+            },
+            {
+                "postId": 1,
+                "id": 4,
+                "name": "alias odio sit",
+                "email": "Lew@alysha.tv",
+                "body": "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
+            },
+            {
+                "postId": 1,
+                "id": 5,
+                "name": "vero eaque aliquid doloribus et culpa",
+                "email": "Hayden@althea.biz",
+                "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
+            },
+            {
+                "postId": 2,
+                "id": 6,
+                "name": "et fugit eligendi deleniti quidem qui sint nihil autem",
+                "email": "Presley.Mueller@myrl.com",
+                "body": "doloribus at sed quis culpa deserunt consectetur qui praesentium\naccusamus fugiat dicta\nvoluptatem rerum ut voluptate autem\nvoluptatem repellendus aspernatur dolorem in"
+            },
+            {
+                "postId": 2,
+                "id": 7,
+                "name": "repellat consequatur praesentium vel minus molestias voluptatum",
+                "email": "Dallas@ole.me",
+                "body": "maiores sed dolores similique labore et inventore et\nquasi temporibus esse sunt id et\neos voluptatem aliquam\naliquid ratione corporis molestiae mollitia quia et magnam dolor"
+            },
+            {
+                "postId": 2,
+                "id": 8,
+                "name": "et omnis dolorem",
+                "email": "Mallory_Kunze@marie.org",
+                "body": "ut voluptatem corrupti velit\nad voluptatem maiores\net nisi velit vero accusamus maiores\nvoluptates quia aliquid ullam eaque"
+            },
+            {
+                "postId": 2,
+                "id": 9,
+                "name": "provident id voluptas",
+                "email": "Meghan_Littel@rene.us",
+                "body": "sapiente assumenda molestiae atque\nadipisci laborum distinctio aperiam et ab ut omnis\net occaecati aspernatur odit sit rem expedita\nquas enim ipsam minus"
+            },
+            {
+                "postId": 2,
+                "id": 10,
+                "name": "eaque et deleniti atque tenetur ut quo ut",
+                "email": "xyzgmail.com",
+                "body": "voluptate iusto quis nobis reprehenderit ipsum amet nulla\nquia quas dolores velit et non\naut quia necessitatibus\nnostrum quaerat nulla et accusamus nisi facilis"
+            }, {
+                "postId": 2,
+                "id": 9,
+                "name": "dhina",
+                "email": "karan@in",
+                "body": "sapiente assumenda molestiae atque\nadipisci laborum distinctio aperiam et ab ut omnis\net occaecati aspernatur odit sit rem expedita\nquas enim ipsam minus"
+            },
+            {
+                "postId": 2,
+                "id": 10,
+                "name": "karan",
+                "email": "dhina@on",
+                "body": "voluptate iusto quis nobis reprehenderit ipsum amet nulla\nquia quas dolores velit et non\naut quia necessitatibus\nnostrum quaerat nulla et accusamus nisi facilis"
+            }
+        ];
+        const getUserData = () => {
+            event.preventDefault()
+            const nameInput = document.getElementById("ninput").value;
+            const emailInput = document.getElementById("einput");
+            const bodyInput = document.getElementById("binput").value;
+            const idInput = userData.length + 1
+            const inputEmailValue = emailInput.value;
+            if (nameInput && inputEmailValue && bodyInput && idInput != null) {
+                if (userData.find((item) => item.email === inputEmailValue)) {
+                    alert("already in userData")
+                } else {
+                    const myObject = {
+                        postId: 3,
+                        id: idInput,
+                        name: nameInput,
+                        email: inputEmailValue,
+                        body: bodyInput
+                    }
+                    userData.push(myObject)
+                }
+                document.getElementById("display").innerHTML = "";
+            } else {
+                document.getElementById("display").innerHTML = "some input fields are missing...";
+            }
+            document.getElementById("reseting").reset()
+        }
+
+        const input = document.getElementById("inputField");
+        const validateArray = ["xyzgmail.com", "dhina@gmail.in"];
+
+        userData.forEach((object) => {
+            if (validateArray.includes(object.email)) {
+                object.key = "verified"
+            }
+        })
+        const getFilterData = () => {
+            event.preventDefault()
+            const inputValue = input.value.toLowerCase();
+            const filteredArray = userData.filter(myObject => myObject.name.toLowerCase().includes(inputValue) || myObject.email.toLowerCase().includes(inputValue));
+            // const inputValue = input.value.toLowerCase();
+            // const filteredArray = userData.filter((myObject) => {
+            //     const emailData = myObject.email.toLowerCase();
+            //     const nameData = myObject.name.toLowerCase();
+            //     return emailData.includes(inputValue) || nameData.includes(inputValue);
+            // });
+            console.log('RESULT', filteredArray);
+            if (input.value === '') {
+                document.getElementById("info").innerHTML = "search something...";
+            }
+            else {
+                for (let i = 0; i < filteredArray.length; i++) { 
+
+                    const nameCase = filteredArray[i].name
+                    const emailCase = filteredArray[i].email
+                    const bodyCase = filteredArray[i].body
+                    filteredArray[i].name = nameCase.toUpperCase()
+                    filteredArray[i].email = emailCase.toLowerCase()                                    
+                    filteredArray[i].body =bodyCase
+
+                }
+                document.getElementById("info").innerHTML = " ";
+                console.log(filteredArray);
+            }
+        }
+        console.log("userData :", userData);
+
+
+    
+    </script>
+</body>
+
+</html>
